@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <title>ServiceWorker Test</title>
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ServiceWorker Test</h1>
+
+    <form id="form">
+      <p><label>message <input value="hey" id="msg"></label>
+      <p><label>title <input value="ServiceWorker Test" id="title"></label>
+      <p><button id="notify">notify</button>
+    </form>
+
+    <script>
+
+      function setupSubscription(registration) {
+        return registration.pushManager.getSubscription()
+        .then((sub) => sub || registration.pushManager.subscribe({userVisibileOnly: true}))
+        .catch(function (error) {
+          console.log('Push Subscription failed with ' + error);
+        });
+      }
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+        .then(setupSubscription)
+        .then((subscription) => {
+
+          var endpoint = subscription.endpoint;
+          var msg = document.querySelector('#msg');
+          var title = document.querySelector('#title');
+          var form = document.querySelector('#form');
+
+          var rawKey = subscription.getKey ? subscription.getKey('p256dh') : '';
+          var key = rawKey ? btoa(String.fromCharCode.apply(null, new Uint8Array(rawKey))) : '';
+
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            fetch('./notify', {
+              method: 'post',
+              headers: {
+                'Content-type': 'application/json'
+              },
+              body: JSON.stringify({
+                endpoint: subscription.endpoint,
+                body: JSON.stringify({
+                  message: msg.value,
+                  title: title.value
+                }),
+                key: key
+              })
+            }).catch(console.error.bind(console));
+          });
+
+        })
+        .catch(function (error) {
+          console.log('Registration failed with ' + error);
+        });
+      }
+    </script>
+  </body>
+</html>
