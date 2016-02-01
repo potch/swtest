@@ -11,5 +11,8 @@
     "serviceworkers"
   ],
   "author": "potch",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "web-push": "^1.0.1"
+  }
 }

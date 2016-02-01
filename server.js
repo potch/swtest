@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var pathLib = require('path');
+var urlLib = require('url');
 
 var routes = [];
 
@@ -23,16 +24,17 @@ function serveStatic(path, mime) {
 }
 
 function handler(req, res) {
-  var url = req.url;
+  var url = urlLib.parse(req.url);
+  var path = url.pathname;
   var method = req.method.toUpperCase();
   for (var i = 0; i < routes.length; i++) {
-    if (url === routes[i].path && method === routes[i].method) {
-      console.log(method + ' ' + url);
+    if (path === routes[i].path && method === routes[i].method) {
+      console.log(method + ' ' + path);
       routes[i].handler(req, res);
       return;
     }
   }
-  console.log(method + ' ' + url + ' Not Found');
+  console.log(method + ' ' + path + ' Not Found');
   res.writeHead(404, {'Content-Type': 'text/plain'});
   res.end('url not found:' + req.url);
 }
