@@ -28,4 +28,4 @@ server.route('post', '/notify', (req, res) => {
 
 var server = http.createServer(server.handler);
 
-server.listen(8080, '127.0.0.1', () => console.log("server started at localhost:8080"));
+server.listen(8080, '127.0.0.1', () => console.log("server started at http://localhost:8080/"));
