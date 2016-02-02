@@ -11,3 +11,9 @@ To Run: `npm start`
 * **index.js** - Server-side code- serves static resources and contacts the push server.
 * **index.html** - Client-side code- requests permission from user and informs the server of the API endpoint.
 * **service-worker.js** - Background script that recieves and processes notification events even when the page isn't open.
+
+## Flow
+
+Here's a diagram that explains in rough terms how Web Push works:
+
+![Web Push Flow Diagram](diagram.svg)

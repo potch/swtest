@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="1203" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <source>
+  <![CDATA[participant User
+participant Page
+participant ServiceWorker
+participant Server
+participant Push Service
+
+User-->Server: Navigation
+Server-->Page: page load
+Page->ServiceWorker: .register()
+Note over ServiceWorker: Register Push Handler
+Note over ServiceWorker: Register Notification\nClick Handler
+ServiceWorker->Page: success
+Note over ServiceWorker: Worker is suspended
+Page->User: Notification\nPermission\nPrompt
+Note over User: permission\ngranted
+User->Page: success
+Note over Page: endpoint and\nkey generated
+Page-->Server: send endpoint/key
+Note over Page: page is backgrounded\nor closed
+Note over Server: *event*
+Server->Push Service: send message
+Push Service->ServiceWorker: push event
+Note over ServiceWorker: Worker is resumed
+ServiceWorker->User: Display Notification
+Note over User: Clicks on\nNotification
+User->ServiceWorker: notificationclick\nevent
+ServiceWorker->Page: Focus Tab /\nOpen Page
+]]>
+  </source>
+  <desc>Created with Raphaël 2.1.2</desc>
+  <defs>
+    <path id="raphael-marker-block" d="M5,0 0,2.5 5,5z" stroke-linecap="round"></path>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35871">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35874">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35877">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35886">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35892">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35898">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35904">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35913">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35916">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35922">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35928">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+    <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55-obj35931">
+      <use stroke="none" fill="#000" stroke-width="1.0000" transform="rotate(180 2.5 2.5) scale(1,1)" xlink:href="#raphael-marker-block"></use>
+    </marker>
+  </defs>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="59" y="20" x="43.400001525878906"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="39" y="30" x="53.400001525878906"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="39.14999961853027" x="72.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549999237060547">User</tspan>
+  </text>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="59" y="1145.399990081787" x="43.400001525878906"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="39" y="1155.39990234375" x="53.400001525878906"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="1164.5499897003174" x="72.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549892425537109">User</tspan>
+  </text>
+  <path stroke-width="2" d="M72.9000015258789,58.29999923706055L72.9000015258789,1145.399990081787" stroke="#000000" fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="59" y="20" x="179.20000457763672"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="39" y="30" x="189.20001220703125"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="39.14999961853027" x="208.70000457763672" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549999237060547">Page</tspan>
+  </text>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="59" y="1145.399990081787" x="179.20000457763672"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="39" y="1155.39990234375" x="189.20001220703125"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="1164.5499897003174" x="208.70000457763672" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549892425537109">Page</tspan>
+  </text>
+  <path stroke-width="2" d="M208.70000457763672,58.29999923706055L208.70000457763672,1145.399990081787" stroke="#000000" fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="145.4000015258789" y="20" x="262.20000076293945"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="125.4000015258789" y="30" x="272.1999816894531"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="39.14999961853027" x="334.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549999237060547">ServiceWorker</tspan>
+  </text>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="145.4000015258789" y="1145.399990081787" x="262.20000076293945"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="125.4000015258789" y="1155.39990234375" x="272.1999816894531"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="1164.5499897003174" x="334.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549892425537109">ServiceWorker</tspan>
+  </text>
+  <path stroke-width="2" d="M334.9000015258789,58.29999923706055L334.9000015258789,1145.399990081787" stroke="#000000" fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="78.20000076293945" y="20" x="427.60000228881836"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="58.20000076293945" y="30" x="437.6000061035156"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="39.14999961853027" x="466.7000026702881" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549999237060547">Server</tspan>
+  </text>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="78.20000076293945" y="1145.399990081787" x="427.60000228881836"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="58.20000076293945" y="1155.39990234375" x="437.6000061035156"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="1164.5499897003174" x="466.7000026702881" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549892425537109">Server</tspan>
+  </text>
+  <path stroke-width="2" d="M466.7000026702881,58.29999923706055L466.7000026702881,1145.399990081787" stroke="#000000" fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="135.8000030517578" y="20" x="534.600004196167"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="115.80000305175781" y="30" x="544.5999755859375"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="39.14999961853027" x="602.5000057220459" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549999237060547">Push Service</tspan>
+  </text>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="38.29999923706055" width="135.8000030517578" y="1145.399990081787" x="534.600004196167"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="115.80000305175781" y="1155.39990234375" x="544.5999755859375"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="1164.5499897003174" x="602.5000057220459" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549892425537109">Push Service</tspan>
+  </text>
+  <path stroke-width="2" d="M602.5000057220459,58.29999923706055L602.5000057220459,1145.399990081787" stroke="#000000" fill="none" style=""></path>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="96.5999984741211" y="74.14999389648438" x="221.49998474121094"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="83.29999923706055" x="269.8000020980835" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549993515014648">Navigation</tspan>
+  </text>
+  <path stroke-dasharray="6,2" marker-end="url(#raphael-marker-endblock55-obj35871)" stroke-width="2" d="M72.9000015258789,96.5999984741211C72.9000015258789,96.5999984741211,416.04526309849575,96.5999984741211,461.70301884973503,96.5999984741211" stroke="#000000"
+  fill="none" style=""></path>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="87" y="112.44999694824219" x="294.20001220703125"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="121.5999984741211" x="337.7000036239624" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549997329711914">page load</tspan>
+  </text>
+  <path stroke-dasharray="6,2" marker-end="url(#raphael-marker-endblock55-obj35874)" stroke-width="2" d="M466.7000026702881,134.89999771118164C466.7000026702881,134.89999771118164,249.63880401386734,134.89999771118164,213.70924036907894,134.89999771118164"
+  stroke="#000000" fill="none" style=""></path>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="106.19999694824219" y="150.75" x="218.69998168945312"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="159.89999771118164" x="271.8000030517578" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.55000114440918">.register()</tspan>
+  </text>
+  <path stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj35877)" stroke-width="2" d="M208.70000457763672,173.1999969482422C208.70000457763672,173.1999969482422,306.45748206015105,173.1999969482422,329.89445542143744,173.1999969482422"
+  stroke="#000000" fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="28.299999237060547" width="212.1999969482422" y="193.1999969482422" x="228.8000030517578"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="202.1999969482422" y="198.1999969482422" x="233.79998779296875"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="207.34999656677246" x="334.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.5500030517578125">Register Push Handler</tspan>
+  </text>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="47.5" width="212.1999969482422" y="241.49999618530273" x="228.8000030517578"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="37.5" width="202.20001220703125" y="246.5" x="233.79998779296875"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="265.24999618530273" x="334.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="-4.049999237060547">Register Notification</tspan>
+    <tspan x="334.9000015258789" dy="19.2">Click Handler</tspan>
+  </text>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="67.80000305175781" y="304.8500061035156" x="237.89999389648438"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="313.99999618530273" x="271.8000030517578" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.550008773803711">success</tspan>
+  </text>
+  <path stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj35886)" stroke-width="2" d="M334.9000015258789,327.2999954223633C334.9000015258789,327.2999954223633,237.14252404336457,327.2999954223633,213.70555068207818,327.2999954223633"
+  stroke="#000000" fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="28.299999237060547" width="193" y="347.2999954223633" x="238.4000015258789"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="183" y="352.3000183105469" x="243.39999389648438"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="361.44999504089355" x="334.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.550025939941406">Worker is suspended</tspan>
+  </text>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="56.699981689453125" width="115.80001068115234" y="372.25" x="82.9000015258789"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="400.5999946594238" x="140.8000030517578" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="-13.650005340576172">Notification</tspan>
+    <tspan x="140.8000030517578" dy="19.2">Permission</tspan>
+    <tspan x="140.8000030517578" dy="19.2">Prompt</tspan>
+  </text>
+  <path stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj35892)" stroke-width="2" d="M208.70000457763672,452.2999954223633C208.70000457763672,452.2999954223633,102.39437551022274,452.2999954223633,77.89425006109218,452.2999954223633"
+  stroke="#000000" fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="47.5" width="106.5999984741211" y="472.2999954223633" x="19.60000228881836"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="37.499969482421875" width="96.5999984741211" y="477.3000183105469" x="24.600000381469727"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="496.0499954223633" x="72.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="-4.049980163574219">permission</tspan>
+    <tspan x="72.9000015258789" dy="19.2">granted</tspan>
+  </text>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="67.80000305175781" y="535.6500244140625" x="106.9000015258789"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="544.7999954223633" x="140.8000030517578" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.550020217895508">success</tspan>
+  </text>
+  <path stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj35898)" stroke-width="2" d="M72.9000015258789,558.0999946594238C72.9000015258789,558.0999946594238,179.20563059329288,558.0999946594238,203.70575604242345,558.0999946594238" stroke="#000000"
+  fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="47.5" width="135.4000015258789" y="578.0999946594238" x="141.00000381469727"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="37.49993896484375" width="125.40000915527344" y="583.1000366210938" x="146.00001525878906"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="601.8499946594238" x="208.70000457763672" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="-4.049968719482422">endpoint and</tspan>
+    <tspan x="208.70000457763672" dy="19.2">key generated</tspan>
+  </text>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="163.8000030517578" y="641.4500122070312" x="255.8000030517578"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="650.5999946594238" x="337.7000036239624" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.550031661987305">send endpoint/key</tspan>
+  </text>
+  <path stroke-dasharray="6,2" marker-end="url(#raphael-marker-endblock55-obj35904)" stroke-width="2" d="M208.70000457763672,663.8999938964844C208.70000457763672,663.8999938964844,425.76120323405746,663.8999938964844,461.69076687884586,663.8999938964844"
+  stroke="#000000" fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="47.5" width="202.60000610351562" y="683.8999938964844" x="107.4000015258789"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="37.5" width="192.59999084472656" y="688.9000244140625" x="112.40000915527344"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="707.6499938964844" x="208.70000457763672" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="-4.050018310546875">page is backgrounded</tspan>
+    <tspan x="208.70000457763672" dy="19.2">or closed</tspan>
+  </text>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="28.299999237060547" width="77.80000305175781" y="751.3999938964844" x="427.8000011444092"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="67.80000305175781" y="756.4000244140625" x="432.8000183105469"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="765.5499935150146" x="466.7000026702881" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.550018310546875">*event*</tspan>
+  </text>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="115.80000305175781" y="795.5499877929688" x="476.6999816894531"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="804.6999931335449" x="534.600004196167" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549993515014648">send message</tspan>
+  </text>
+  <path stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj35913)" stroke-width="2" d="M466.7000026702881,817.9999923706055C466.7000026702881,817.9999923706055,573.0056317377021,817.9999923706055,597.5057571868326,817.9999923706055" stroke="#000000"
+  fill="none" style=""></path>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="96.5999984741211" y="833.8499755859375" x="420.4000244140625"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="842.9999923706055" x="468.7000036239624" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.550004959106445">push event</tspan>
+  </text>
+  <path stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj35916)" stroke-width="2" d="M602.5000057220459,856.299991607666C602.5000057220459,856.299991607666,376.5824083367452,856.299991607666,339.9038921596883,856.299991607666" stroke="#000000"
+  fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="28.299999237060547" width="173.8000030517578" y="876.299991607666" x="248"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="163.8000030517578" y="881.2999877929688" x="252.99998474121094"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="890.4499912261963" x="334.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.549991607666016">Worker is resumed</tspan>
+  </text>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="18.299999237060547" width="192.60000610351562" y="920.4500122070312" x="107.59999084472656"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="929.5999908447266" x="203.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="5.550027847290039">Display Notification</tspan>
+  </text>
+  <path stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj35922)" stroke-width="2" d="M334.9000015258789,942.8999900817871C334.9000015258789,942.8999900817871,114.12134552001953,942.8999900817871,77.89984726905823,942.8999900817871" stroke="#000000"
+  fill="none" style=""></path>
+  <rect stroke-width="2" style="" stroke="#000000" fill="none" ry="0" rx="0" height="47.5" width="125.80000305175781" y="962.8999900817871" x="10"></rect>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="37.49993896484375" width="115.80000305175781" y="967.9000244140625" x="14.999999046325684"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="986.6499900817871" x="72.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="-4.049961090087891">Clicks on</tspan>
+    <tspan x="72.9000015258789" dy="19.2">Notification</tspan>
+  </text>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="37.50006103515625" width="163.79998779296875" y="1016.6499633789062" x="121.99999237060547"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="1035.399990081787" x="203.9000015258789" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="-4.050052642822266">notificationclick</tspan>
+    <tspan x="203.9000015258789" dy="19.2">event</tspan>
+  </text>
+  <path stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj35928)" stroke-width="2" d="M72.9000015258789,1067.899990081787C72.9000015258789,1067.899990081787,293.6786575317383,1067.899990081787,329.9001557826996,1067.899990081787" stroke="#000000"
+  fill="none" style=""></path>
+  <rect style="" stroke="none" fill="#ffffff" ry="0" rx="0" height="37.5001220703125" width="106.19998168945312" y="1074.14990234375" x="218.69998168945312"></rect>
+  <text fill="#000000" stroke="none" font-size="16px" font-family="Andale Mono, monospace" text-anchor="middle" y="1092.899990081787" x="271.8000030517578" style="text-anchor: middle; font-family: Andale Mono,monospace; font-size: 16px;">
+    <tspan dy="-4.050083160400391">Focus Tab /</tspan>
+    <tspan x="271.8000030517578" dy="19.2">Open Page</tspan>
+  </text>
+  <path stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj35931)" stroke-width="2" d="M334.9000015258789,1125.399990081787C334.9000015258789,1125.399990081787,237.14252404336457,1125.399990081787,213.70555068207818,1125.399990081787"
+  stroke="#000000" fill="none" style=""></path>
+</svg>
