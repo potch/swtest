@@ -14,6 +14,6 @@ To Run: `npm start`
 
 ## Flow
 
-Here's a diagram that explains in rough terms how Web Push works:
+Here's a diagram that explains (in rough terms) how Web Push works:
 
 ![Web Push Flow Diagram](diagram.svg)
