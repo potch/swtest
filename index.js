@@ -28,6 +28,6 @@ server.route('post', '/notify', (req, res) => {
 
 var server = http.createServer(server.handler);
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8080;
 
-server.listen(port, '0.0.0.0', () => console.log("server started at http://localhost:" + port + "/"));
+server.listen(port, '0.0.0.0', () => console.log("server started at " + port));
