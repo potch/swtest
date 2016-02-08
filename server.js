@@ -16,8 +16,8 @@ function route(method, path, handler) {
 
 function serveStatic(path, mime) {
   mime = mime || 'text/plain';
+  var body = fs.readFileSync(path).toString();
   return function (req, res) {
-    var body = fs.readFileSync(path).toString();
     res.writeHead(200, {'Content-type': mime});
     res.end(body);
   };

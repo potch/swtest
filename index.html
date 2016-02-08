@@ -6,24 +6,70 @@
     <title>ServiceWorker Test</title>
     <style>
       body {
+        font-family: sans-serif;
+        line-height: 1.4;
+      }
+      article {
+        margin: 0 auto;
+        max-width: 500px;
+      }
+      h1 {
         text-align: center;
+      }
+      input, button {
+        font-size: 1em;
+      }
+
+      .status {
+        font-weight: bold;
+        color: #c00;
+      }
+      .status.success {
+        color: #0c0;
       }
     </style>
   </head>
   <body>
-    <h1>ServiceWorker Test</h1>
+    <article>
+      <h1>ServiceWorker Test</h1>
 
-    <form id="form">
-      <p><label>message <input value="hey" id="msg"></label>
-      <p><label>title <input value="ServiceWorker Test" id="title"></label>
-      <p><button id="notify">notify</button>
-    </form>
+      <form id="form">
+        <p><label for="title">Notification title:</label> <input value="ServiceWorker Test" id="title">
+        <p><label for="msg">Notification body:</label> <input value="hey" id="msg">
+        <p><button id="notify" disabled>Send Notification</button>
+      </form>
+
+      <h2>Debugging Info</h2>
+      <pre id="output">
+Service Worker is <span class="status sw">not registered</span>
+Notification permission is <span class="status push">not granted</span>
+      </pre>
+
+    </article>
 
     <script>
 
+      function setStatus(name, msg, success) {
+        var el = document.querySelector('.status.' + name);
+        if (!el) return;
+        if (success) {
+          el.innerHTML = msg;
+          el.classList.add('success');
+        } else {
+          el.innerHTML = msg;
+          el.classList.remove('success');
+        }
+      }
+
       function setupSubscription(registration) {
+
+        setStatus('sw', 'registered', true);
+        document.querySelector('#notify').removeAttribute('disabled');
+
         return registration.pushManager.getSubscription()
-        .then((sub) => sub || registration.pushManager.subscribe({userVisibileOnly: true}))
+        .then(function (subscription) {
+          return subscription || registration.pushManager.subscribe({userVisibileOnly: true});
+        })
         .catch(function (error) {
           console.log('Push Subscription failed with ' + error);
         });
@@ -32,7 +78,9 @@
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
         .then(setupSubscription)
-        .then((subscription) => {
+        .then(function (subscription) {
+
+          setStatus('push', 'granted', true);
 
           var endpoint = subscription.endpoint;
           var msg = document.querySelector('#msg');
@@ -64,6 +112,8 @@
         .catch(function (error) {
           console.log('Registration failed with ' + error);
         });
+      } else {
+        setStatus('sw', 'not supported', false);
       }
     </script>
   </body>
