@@ -30,4 +30,4 @@ var server = http.createServer(server.handler);
 
 var port = process.env.PORT || 8000;
 
-server.listen(port, '127.0.0.1', () => console.log("server started at http://localhost:8080/"));
+server.listen(port, '0.0.0.0', () => console.log("server started at http://localhost:" + port + "/"));
